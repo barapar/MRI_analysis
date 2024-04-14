@@ -1,4 +1,4 @@
-"""rename row MRI data  to BIDS"""
+"""rename NIFTI files to BIDS"""
 
 import os
 import shutil
