@@ -2,3 +2,7 @@ Sequence of the analysis:
 IMA_to_NIFTI.py
 create_participants_tsv_file.py
 naming_to_BIDS_format.py
+fmriprep.sh
+resampling_FSL_FLIRT_function.sh
+fmri_spatial_smoothing_FSLMATH.sh
+fmri_temporal_filtering_butterworth.py
