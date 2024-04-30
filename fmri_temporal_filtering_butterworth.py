@@ -4,22 +4,8 @@ Butterworth filtering of the timescales
 import os
 import numpy as np
 import nibabel as nib
-import matplotlib.pyplot as plt
-import pandas as pd
-import pingouin as pg
-import csv
-from nilearn import datasets, image
-from nilearn.signal import butterworth
-from statsmodels.stats.multitest import multipletests
-import matplotlib
-from statsmodels.tsa.stattools import acf
-
-import nilearn
-from nilearn import surface
-from nilearn import plotting
 from os.path import join as opj
-from scipy import stats
-import time
+from nilearn.signal import butterworth
 
 sub_list = ["sub-01","sub-02","sub-03",
             "sub-04","sub-05","sub-06",
