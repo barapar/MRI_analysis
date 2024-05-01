@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 from nilearn import surface
 from nilearn import plotting
-from os.path import join as opj
 from nilearn import datasets
+from os.path import join as opj
 
 # project directory
 root_dir = opj('/', 'home', 'lisz', 'Desktop', 'Time_project', 'time_fmri', 'data',

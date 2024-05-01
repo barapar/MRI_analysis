@@ -4,19 +4,14 @@ Butterworth filtering of the timescales
 import os
 import numpy as np
 import nibabel as nib
-from os.path import join as opj
 from nilearn.signal import butterworth
+from os.path import join as opj
 
-sub_list = ["sub-01","sub-02","sub-03",
-            "sub-04","sub-05","sub-06",
-            "sub-07","sub-08","sub-09",
-            "sub-10","sub-11","sub-12",
-            "sub-13","sub-15","sub-16",
-            "sub-17","sub-18","sub-19",
-            "sub-21","sub-22","sub-23",
-            "sub-24","sub-25","sub-26",
-            "sub-27","sub-28","sub-30",
-            "sub-31","sub-32","sub-33",]
+sub_list = ["sub-01", "sub-02", "sub-03", "sub-04", "sub-05", "sub-06",
+            "sub-07", "sub-08", "sub-09", "sub-10", "sub-11", "sub-12",
+            "sub-13", "sub-15", "sub-16", "sub-17", "sub-18", "sub-19",
+            "sub-21", "sub-22", "sub-23", "sub-24", "sub-25", "sub-26",
+            "sub-27", "sub-28", "sub-30", "sub-31", "sub-32", "sub-33",]
 
 # root directory
 root_dir = opj('/', 'home', 'lisz', 'Desktop')
@@ -43,22 +38,22 @@ atlas_img[mask_atl] = 1
 # regfilt transformation to isometric voxels
 ###################################################################################
 
-affine_m = np.array([[   2.      ,    0.      ,    0.      ,  -95.97200775],
-       [   0.      ,    2.      ,    0.      , -132.5     ],
-       [   0.      ,    0.      ,    2.      ,  -78.5     ],
-       [   0.      ,    0.      ,    0.      ,    1.      ]])
+affine_m = np.array([[2., 0., 0., -95.97200775],
+                     [0., 2., 0., -132.5],
+                     [0., 0., 2., -78.5 ],
+                     [0., 0., 0.,  1.   ]])
 
 '''
 open the file 
-mask tha brain voxels
-butterworth filtering
+mask the brain voxels
+apply butterworth filtering
 save to the nifti file for the next step
 '''
 for sub in sub_list:
-    for root, dirs, files in os.walk(os.path.join(in_dir, sub, 'func')):
+    for root, dirs, files in os.walk(opj(in_dir, sub, 'func')):
         for file in files:
             if file.endswith("_task-rest_acq-EPI_space-MNI152NLin2009cAsym_desc-preproc_bold_2mm-regfilt.nii.gz"):
-                file_path = os.path.join(root, file)
+                file_path = opj(root, file)
                 # load nifti
                 img = nib.load(file_path)
                 img_data = img.get_fdata()

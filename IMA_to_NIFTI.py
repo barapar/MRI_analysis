@@ -8,7 +8,8 @@ from os.path import join as opj
 # path to the raw data
 data_path = '/media/lisz/HD710\ PRO/fmri_time'
 # the path to the output data folder
-out_dir = '/home/lisz/Desktop/Time_project/time_fmri/data'
+out_dir = opj('/', 'home', 'lisz', 'Desktop', 'Time_project', 'time_fmri', 'data')
+
 # input subject number
 sub = input("Plese enter subject number: ") # sub-05
 
