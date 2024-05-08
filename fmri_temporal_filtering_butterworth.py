@@ -19,8 +19,7 @@ root_dir = opj('/', 'home', 'lisz', 'Desktop')
 # input directory
 in_dir = opj(root_dir, 'Time_project', 'time_fmri', 'data', 'derivatives', 'preprocess')
 
-# output directory and filename
-out_name = f"{sub}_temporal_smoothing.nii.gz"
+# output directory
 out_dir = opj(root_dir, 'Time_project', 'time_fmri', 'data', 'derivatives', 'autocorr_analysis_v2')
 
 # open and load the atlas
@@ -49,6 +48,7 @@ mask the brain voxels
 apply butterworth filtering
 save to the nifti file for the next step
 '''
+
 for sub in sub_list:
     for root, dirs, files in os.walk(opj(in_dir, sub, 'func')):
         for file in files:
@@ -74,5 +74,5 @@ for sub in sub_list:
                 nifti_img = nib.Nifti1Image(masked_matrix, affine=affine_m)
 
                 # Save the NIfTI image to file
-                nib.save(nifti_img, out_dir + out_name)
+                nib.save(nifti_img, out_dir + f"/{sub}_temporal_smoothing.nii.gz")
                 print(sub)
